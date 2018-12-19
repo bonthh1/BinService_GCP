@@ -1,0 +1,24 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2> <b>Platform Search </b></h2>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cardnumber.valid }">
+            <label for="cardnumber">Card Number</label>
+            <input type="text" class="form-control" name="cardnumber" [(ngModel)]="model.cardnumber" #cardnumber="ngModel" required />
+            <div *ngIf="f.submitted && !cardnumber.valid" class="help-block">CardNumber is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !appName.valid }">
+            <label for="appName">App Name</label>
+            <input type="text" class="form-control" name="appName" [(ngModel)]="model.appName" #appName="ngModel" required />
+            <div *ngIf="f.submitted && !appName.valid" class="help-block">AppName is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !country.valid }">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" name="country" [(ngModel)]="model.country" #country="ngModel" required />
+            <div *ngIf="f.submitted && !country.valid" class="help-block">Country is required</div>
+        </div>
+       
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Submit</button>  
+        </div>
+    </form>
+</div>
